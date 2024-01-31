@@ -5,11 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Survey Dashboard') }}</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        {{-- <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
+        {{-- Volt CSS --}}
+        <link type="text/css" href="{{ asset('theme/volt.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
+
+        {{-- Bootstrap icons --}}
+        <link type="text/css" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -28,9 +34,20 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="content">
                 {{ $slot }}
             </main>
+
+            {{-- Core --}}
+            <script src="{{ asset('vendor/@popperjs/popper.min.js') }}"></script>
+            <script src="{{ asset('vendor/bootstrap/bootstrap.min.js') }}"></script>
+        
+            {{-- Smooth scroll --}}
+            <script src="{{ asset('vendor/smooth-scroll/smooth-scroll.min.js') }}"></script>
+        
+            {{-- Volt JS --}}
+            <script src="{{ asset('theme/volt.js') }}"></script>
+            
         </div>
     </body>
 </html>
