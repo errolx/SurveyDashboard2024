@@ -37,6 +37,22 @@
                 @include('Response.partial.sheets-table')
             </div>
 
+            {{-- Viewer View --}}
+            @if (Auth::user()->role == 'viewer')
+                <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
+                    @include('Response.partial.viewer-search')
+                </div>
+            @endif
+            {{-- /Viewer View --}}
+
+            {{-- Admin View --}}
+            @if (Auth::user()->role == 'Admin')
+                <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
+                    @include('Response.partial.admin-search')
+                </div>
+            @endif
+            {{-- /Admin View --}}
+
             @endif
 
         </div>
